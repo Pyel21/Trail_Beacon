@@ -1,30 +1,48 @@
-{
+﻿{
   "expo": {
-    "name": "mobile",
-    "slug": "mobile",
-    "version": "1.0.0",
-    "orientation": "portrait",
-    "icon": "./assets/icon.png",
-    "userInterfaceStyle": "light",
-    "newArchEnabled": true,
-    "splash": {
-      "image": "./assets/splash-icon.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+    "name": "Trail Beacon",
+    "slug": "trail-beacon",
+    "scheme": "trailbeacon",
+    "extra": {
+      "MAPBOX_ACCESS_TOKEN": "pk.eyJ1IjoicHllbDA4MjEiLCJhIjoiY21kNndhOXZwMGUzbDJscHZpanVuM2oyMyJ9.x9n8D_IvdYVBKN_MhLpu1A"
     },
-    "ios": {
-      "supportsTablet": true
+    "plugins": [
+      [
+        "@rnmapbox/maps",
+        {
+          "RNMapboxMapsDownloadToken": "sk.eyJ1IjoicHllbDA4MjEiLCJhIjoiY21mdHNsZmJ4MHA3djJqczh0ZGVjbWI5dSJ9.UtGc1RCNH9PM2KbcLB7I4A",
+          "android": { "accessToken": "pk.eyJ1IjoicHllbDA4MjEiLCJhIjoiY21kNndhOXZwMGUzbDJscHZpanVuM2oyMyJ9.x9n8D_IvdYVBKN_MhLpu1A" },
+          "ios": { "accessToken": "pk.eyJ1IjoicHllbDA4MjEiLCJhIjoiY21kNndhOXZwMGUzbDJscHZpanVuM2oyMyJ9.x9n8D_IvdYVBKN_MhLpu1A" }
+        }
+      ],
+      [
+        "expo-build-properties",
+        {
+          "android": { "compileSdkVersion": 35, "targetSdkVersion": 35 },
+          "ios": { "deploymentTarget": "15.1" }
+        }
+      ]
+    ],
+    "ios": { 
+      "bundleIdentifier": "com.trailbeacon.app",
+      "infoPlist": {
+        "NSLocationWhenInUseUsageDescription": "This app needs location access to find nearby Trail Beacon users and provide location-based services.",
+        "NSLocationAlwaysAndWhenInUseUsageDescription": "This app needs location access to find nearby Trail Beacon users and provide location-based services.",
+        "NSLocationAlwaysUsageDescription": "This app needs location access to find nearby Trail Beacon users and provide location-based services."
+      }
     },
-    "android": {
-      "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
-      },
-      "edgeToEdgeEnabled": true,
-      "predictiveBackGestureEnabled": false
-    },
-    "web": {
-      "favicon": "./assets/favicon.png"
+    "android": { 
+      "package": "com.trailbeacon.app",
+      "permissions": [
+        "ACCESS_FINE_LOCATION",
+        "ACCESS_COARSE_LOCATION",
+        "ACCESS_WIFI_STATE",
+        "CHANGE_WIFI_STATE",
+        "ACCESS_NETWORK_STATE",
+        "CHANGE_NETWORK_STATE",
+        "INTERNET",
+        "ACCESS_BACKGROUND_LOCATION"
+      ]
     }
   }
 }
